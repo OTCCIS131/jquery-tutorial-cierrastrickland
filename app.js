@@ -36,6 +36,16 @@ $(document).ready(function (){
         );
     }
 
+    //events
+    $('.add-attendee').on('click', function (event){
+        event.preventDefault();
+        addAttendee();
+        $(this).trigger('attendee.add');
+    }).on('attendee:add', function(){
+        syncPurchaseButton();
+        syncRemoveButtons();
+    })
+
     //initialize the form
 
     //set up the unit cost of one ticket
