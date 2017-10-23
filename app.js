@@ -46,6 +46,20 @@ $(document).ready(function (){
         syncRemoveButtons();
     })
 
+    //attach an even handler to the dynamic row remove button
+    $('#app').on('click', 'attendee .remove-attendee', function (event){
+        event.preventDefault();
+        var $row = $(event.target).closest('.attendee.row');
+
+        $row.remove();
+        $('#app').trigger('attendee:remove');
+    });
+
+    $('#app').on('attendee:remove', function(){
+        syncPurchaseButton();
+        syncRemoveButtons();
+    });
+
     //initialize the form
 
     //set up the unit cost of one ticket
