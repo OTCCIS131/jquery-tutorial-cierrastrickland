@@ -14,6 +14,19 @@ $(document).ready(function (){
         $('.attendee-list').append(
             $('script[data-template="attendee"]').text()
         );
+
+        //sync remove button UI
+        syncRemoveButtons();
+    }
+
+    function syncRemoveButtons(){
+        //if only one attendee, hide the first remove button
+        //otherwise, show all remove buttons
+        if(getAttendeeCount()===1){
+            $('.attendee-list .attendee .remove-attendee').first().hide();
+        }else{
+            $('.attendee-list .attendee .remove-attendee').show();
+        }
     }
     
     function syncPurchaseButton(){
