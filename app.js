@@ -22,4 +22,13 @@ $(document).ready(function (){
             '$' + data.cost * getAttendeeCount()
         );
     }
-})
+
+    //initialize the form
+
+    //set up the unit cost of one ticket
+    $('#unit-price').html('$' + data.cost + ' ea.');
+
+    //add one attendee by default on init
+    addAttendee();
+    syncPurchaseButton();
+});
